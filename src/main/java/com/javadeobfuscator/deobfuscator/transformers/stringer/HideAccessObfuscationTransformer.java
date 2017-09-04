@@ -147,7 +147,6 @@ public class HideAccessObfuscationTransformer extends Transformer {
                 AbstractInsnNode insn = copy.get(i);
                 if (insn instanceof MethodInsnNode && decryptors.stream().map(decryptor -> decryptor.name).collect(Collectors.toList()).contains(((MethodInsnNode) insn).owner)) {
                     String owner = ((MethodInsnNode) insn).owner;
-                    String name = ((MethodInsnNode) insn).name;
                     String desc = ((MethodInsnNode) insn).desc;
                     switch (desc) {
                         case "(I)Ljava/lang/Object;": {  // GETSTATIC
@@ -345,51 +344,6 @@ public class HideAccessObfuscationTransformer extends Transformer {
         return primitiveType.contains(type);
     }
 
-    private boolean isUnboxingMethod(TypeInsnNode checkcast) {
-        if (checkcast.getNext() instanceof MethodInsnNode) {
-
-            String[][] objectType = {
-                    {"java/lang/Byte", "byteValue", "()B"},
-                    {"java/lang/Short", "shortValue", "()S"},
-                    {"java/lang/Integer", "intValue", "()I"},
-                    {"java/lang/Long", "longValue", "()J"},
-                    {"java/lang/Float", "floatValue", "()F"},
-                    {"java/lang/Double", "doubleValue", "()D"},
-                    {"java/lang/Character", "charValue", "()C"},
-                    {"java/lang/Boolean", "booleanValue", "()Z"}
-            };
-
-            MethodInsnNode next = (MethodInsnNode) checkcast.getNext();
-            for (String[] type : objectType) {
-                if (checkcast.desc.equals(type[0]) && next.owner.equals(type[0]) && next.name.equals(type[1]) && next.desc.equals(type[2])) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    private String getUnboxingMethod(String type) {
-        String[][] objectType = {
-                {"java/lang/Byte", "byteValue", "()B"},
-                {"java/lang/Short", "shortValue", "()S"},
-                {"java/lang/Integer", "intValue", "()I"},
-                {"java/lang/Long", "longValue", "()J"},
-                {"java/lang/Float", "floatValue", "()F"},
-                {"java/lang/Double", "doubleValue", "()D"},
-                {"java/lang/Character", "charValue", "()C"},
-                {"java/lang/Boolean", "booleanValue", "()Z"}
-        };
-
-        for (String[] t : objectType) {
-            if (type.replace(".", "/").equals(t[0]))
-                return String.format("%s %s %s", t[0], t[1], t[2]);
-        }
-
-        return null;
-    }
-
     private boolean isValueOf(AbstractInsnNode insn) {
         if (insn instanceof MethodInsnNode) {
             MethodInsnNode cast = (MethodInsnNode) insn;
@@ -422,30 +376,5 @@ public class HideAccessObfuscationTransformer extends Transformer {
         } else {
             return Type.getType("L" + desc + ";");
         }
-    }
-
-    private boolean isEqualType(String type1, String type2) {
-        String[][] types = {
-                {"java/lang/Byte", "byte", "B"},
-                {"java/lang/Short", "short", "S"},
-                {"java/lang/Integer", "int", "I"},
-                {"java/lang/Long", "long", "J"},
-                {"java/lang/Float", "float", "F"},
-                {"java/lang/Double", "double", "D"},
-                {"java/lang/Character", "char", "C"},
-                {"java/lang/Boolean", "boolean", "Z"}
-        };
-
-        for (String[] type : types) {
-            boolean flag1 = false;
-            boolean flag2 = false;
-            for (String t : type) {
-                if (t.equals(type1.replace(".", "/"))) flag1 = true;
-                else if (t.equals(type2.replace(".", "/"))) flag2 = true;
-            }
-
-            if (flag1 && flag2) return true;
-        }
-        return false;
     }
 }

@@ -36,7 +36,6 @@ import com.javadeobfuscator.deobfuscator.executor.values.JavaValue;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.Handle;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.Opcodes;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.Type;
-import com.javadeobfuscator.deobfuscator.org.objectweb.asm.commons.Method;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.AbstractInsnNode;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.ClassNode;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.InvokeDynamicInsnNode;

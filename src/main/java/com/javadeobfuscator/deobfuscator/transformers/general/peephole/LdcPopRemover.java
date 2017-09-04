@@ -16,39 +16,18 @@
 
 package com.javadeobfuscator.deobfuscator.transformers.general.peephole;
 
-import com.javadeobfuscator.deobfuscator.analyzer.AnalyzerResult;
-import com.javadeobfuscator.deobfuscator.analyzer.MethodAnalyzer;
-import com.javadeobfuscator.deobfuscator.analyzer.frame.Frame;
-import com.javadeobfuscator.deobfuscator.analyzer.frame.LdcFrame;
-import com.javadeobfuscator.deobfuscator.analyzer.frame.PopFrame;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.Opcodes;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.AbstractInsnNode;
 import com.javadeobfuscator.deobfuscator.transformers.Transformer;
 import com.javadeobfuscator.deobfuscator.utils.Utils;
 import com.javadeobfuscator.deobfuscator.utils.WrappedClassNode;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class LdcPopRemover extends Transformer {
     public LdcPopRemover(Map<String, WrappedClassNode> classes, Map<String, WrappedClassNode> classpath) {
         super(classes, classpath);
-    }
-
-    private boolean willTakeTwoSlots(int opcode) {
-        switch (opcode) {
-            case Opcodes.DLOAD:
-            case Opcodes.LLOAD:
-            case Opcodes.DCONST_0:
-            case Opcodes.DCONST_1:
-            case Opcodes.LCONST_0:
-            case Opcodes.LCONST_1:
-                return true;
-            default:
-                return false;
-        }
     }
 
     @Override

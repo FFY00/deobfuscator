@@ -16,20 +16,9 @@
 
 package com.javadeobfuscator.deobfuscator.executor.defined.types;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.security.CodeSource;
-import java.security.ProtectionDomain;
-import java.security.cert.Certificate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-
 import com.javadeobfuscator.deobfuscator.executor.exceptions.ExecutionException;
-import com.javadeobfuscator.deobfuscator.executor.values.JavaObject;
 import com.javadeobfuscator.deobfuscator.executor.values.JavaValue;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.Opcodes;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.Type;

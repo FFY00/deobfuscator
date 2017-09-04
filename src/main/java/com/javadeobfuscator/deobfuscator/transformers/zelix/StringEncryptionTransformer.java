@@ -225,7 +225,7 @@ public class StringEncryptionTransformer extends Transformer {
                                     }
                                     for (Map.Entry<LdcInsnNode, Frame> ent : interestedFrames.entrySet()) {
                                         if (ent.getValue() instanceof LdcFrame) {
-                                            LdcFrame ldc = (LdcFrame) ent.getValue();
+                                            ent.getValue();
                                             Context context = new Context(provider);
                                             context.push(wrappedClassNode.classNode.name, clinit.name, wrappedClassNode.constantPoolSize);
                                             ClassNode innerClassNode = classes.get(cast.owner).classNode;

@@ -53,7 +53,7 @@ public class MethodNormalizer extends Transformer {
             while (!toTry.isEmpty()) {
                 String t = toTry.poll();
                 if (tried.add(t) && !t.equals("java/lang/Object")) {
-                    ClassNode cn = this.deobfuscator.assureLoaded(t);
+                    this.deobfuscator.assureLoaded(t);
                     ClassTree ct = this.deobfuscator.getClassTree(t);
                     allClasses.add(t);
                     allClasses.addAll(ct.parentClasses);

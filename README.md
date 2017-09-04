@@ -64,6 +64,7 @@ Official transformers are linked via the `Transformers` class.
 | Normalizer.METHOD_NORMALIZER | normalizer.MethodNormalizer | Renames all methods to Method<number> |
 | Normalizer.FIELD_NORMALIZER | normalizer.FieldNormalizer | Renames all fields to Field<number> |  
 | Normalizer.PACKAGE_NORMALIZER | normalizer.PackageNormalizer | Renames all packages to Package<number> |
+| Normalizer.SRC_RENAMER | normalizer.SourceFileClassNormalizer | Renames all classes to their sourcefile name |
 
 ## Downloads
 

@@ -76,17 +76,4 @@ public class DeadCodeRemover extends Transformer {
                         methodNode.localVariables.clear(); // Fix for Procyon AstBuilder.convertLocalVariables 
         })); 
     } 
- 
-    private boolean hasBackJump(MethodNode methodNode) { 
-        Set<LabelNode> labels = new HashSet<>(); 
-        for (AbstractInsnNode insn = methodNode.instructions.getFirst(); insn != null; insn = insn.getNext()) { 
-            if (insn instanceof LabelNode) 
-                labels.add((LabelNode) insn); 
-            else if (insn instanceof JumpInsnNode && labels.contains(((JumpInsnNode) insn).label)) { 
-                return true; 
-            } 
-        } 
- 
-        return false; 
-    } 
 }

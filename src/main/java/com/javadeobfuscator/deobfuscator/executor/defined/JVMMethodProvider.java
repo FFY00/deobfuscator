@@ -47,8 +47,6 @@ import com.javadeobfuscator.deobfuscator.utils.WrappedClassNode;
 
 import javax.xml.bind.DatatypeConverter;
 
-import javax.xml.bind.DatatypeConverter;
-
 public class JVMMethodProvider extends MethodProvider {
     @SuppressWarnings("serial")
     //@formatter:off

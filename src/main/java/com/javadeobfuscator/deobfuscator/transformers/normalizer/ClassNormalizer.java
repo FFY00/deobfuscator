@@ -16,7 +16,6 @@
 
 package com.javadeobfuscator.deobfuscator.transformers.normalizer;
 
-import com.javadeobfuscator.deobfuscator.org.objectweb.asm.Opcodes;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.commons.RemappingClassAdapter;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.ClassNode;
 import com.javadeobfuscator.deobfuscator.transformers.Transformer;

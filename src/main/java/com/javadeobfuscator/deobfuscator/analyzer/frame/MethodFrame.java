@@ -23,17 +23,10 @@ public class MethodFrame extends Frame {
 
     private Frame instance;
     private List<Frame> args;
-    private String owner;
-    private String name;
-    private String desc;
-
     public MethodFrame(int opcode, String owner, String name, String desc, Frame instance, List<Frame> args) {
         super(opcode);
         this.instance = instance;
         this.args = args;
-        this.owner = owner;
-        this.name = name;
-        this.desc = desc;
         if (this.instance != null) {
             this.instance.children.add(this);
         }

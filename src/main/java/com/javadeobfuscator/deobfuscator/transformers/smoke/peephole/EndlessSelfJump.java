@@ -3,7 +3,6 @@ package com.javadeobfuscator.deobfuscator.transformers.smoke.peephole;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.AbstractInsnNode; 
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.InsnList; 
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.JumpInsnNode; 
-import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.LabelNode; 
 import com.javadeobfuscator.deobfuscator.transformers.Transformer; 
 import com.javadeobfuscator.deobfuscator.utils.Utils; 
 import com.javadeobfuscator.deobfuscator.utils.WrappedClassNode; 

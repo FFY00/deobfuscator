@@ -42,7 +42,6 @@ import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.TryCatchBlockNod
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.TypeInsnNode;
 import com.javadeobfuscator.deobfuscator.org.objectweb.asm.tree.VarInsnNode;
 import com.javadeobfuscator.deobfuscator.utils.PrimitiveUtils;
-import com.javadeobfuscator.deobfuscator.utils.Utils;
 import com.javadeobfuscator.deobfuscator.utils.WrappedClassNode;
 
 import java.lang.reflect.Modifier;

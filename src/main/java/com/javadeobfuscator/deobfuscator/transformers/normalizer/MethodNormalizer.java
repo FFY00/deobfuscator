@@ -53,7 +53,7 @@ public class MethodNormalizer extends Transformer {
             while (!toTry.isEmpty()) {
                 String t = toTry.poll();
                 if (tried.add(t) && !t.equals("java/lang/Object")) {
-                    ClassNode cn = this.deobfuscator.assureLoaded(t);
+                    this.deobfuscator.assureLoaded(t);
                     ClassTree ct = this.deobfuscator.getClassTree(t);
                     allClasses.add(t);
                     allClasses.addAll(ct.parentClasses);
@@ -190,11 +190,11 @@ public class MethodNormalizer extends Transformer {
                     });
                 }
 
-                allMethodNodes.entrySet().forEach(ent -> {
-                    if (ent.getKey().getKey().isLibrary && ent.getValue()) {
-                        isLibrary.set(true);
-                    }
-                });
+//                allMethodNodes.entrySet().forEach(ent -> {
+//                    if (ent.getKey().getKey().isLibrary && ent.getValue()) {
+//                        isLibrary.set(true);
+//                    }
+//                });
 
                 if (!isLibrary.get()) {
                     if (!remapper.methodMappingExists(classNode.name, methodNode.name, methodNode.desc)) {
